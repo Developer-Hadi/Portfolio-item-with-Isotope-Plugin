@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isotope Filter Plugin</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <ul class="menu">
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".web">Web</li>
+                    <li data-filter=".software">Software</li>
+                    <li data-filter=".graphic">Graphic</li>
+                    <li data-filter=".seo">SEO</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row g-0 portfolio-items">
+            <div class="col-xl-4 web seo">
+                <div class="portfolio-item">
+                    <img src="assets/images/01.jpg" alt="Portfolio Item">
+                    <div class="portfolio-overlay">
+                        <h4>Portfolio Title</h4>
+                        <p>Portfolio Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 software seo">
+                <div class="portfolio-item">
+                    <img src="assets/images/02.jpg" alt="Portfolio Item">
+                    <div class="portfolio-overlay">
+                        <h4>Portfolio Title</h4>
+                        <p>Portfolio Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 software">
+                <div class="portfolio-item">
+                    <img src="assets/images/03.jpg" alt="Portfolio Item">
+                    <div class="portfolio-overlay">
+                        <h4>Portfolio Title</h4>
+                        <p>Portfolio Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 graphic">
+                <div class="portfolio-item">
+                    <img src="assets/images/04.jpg" alt="Portfolio Item">
+                    <div class="portfolio-overlay">
+                        <h4>Portfolio Title</h4>
+                        <p>Portfolio Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 software">
+                <div class="portfolio-item">
+                    <img src="assets/images/05.jpg" alt="Portfolio Item">
+                    <div class="portfolio-overlay">
+                        <h4>Portfolio Title</h4>
+                        <p>Portfolio Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 graphic web">
+                <div class="portfolio-item">
+                    <img src="assets/images/06.jpg" alt="Portfolio Item">
+                    <div class="portfolio-overlay">
+                        <h4>Portfolio Title</h4>
+                        <p>Portfolio Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script>
+        // init Isotope
+        var $grid = $('.portfolio-items').isotope({
+        // options
+        });
+        // filter items on button click
+        $('.menu').on( 'click', 'li', function() {
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+        });
+        // filter items on button active
+        $('.menu').on( 'click', 'li', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+    </script>
+</body>
+</html>
